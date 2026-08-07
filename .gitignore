@@ -13,3 +13,6 @@ data/raw/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Données intermédiaires générées
+data/interim/
