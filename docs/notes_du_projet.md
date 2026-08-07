@@ -61,7 +61,7 @@ Dataset consolidé : 1 044 848 lignes
 Résultats :
 
 - 22 557 lignes avec Quantity < 0 
-- 19 164 liées à des factures commençant par C (Retours / Cancelled)
+- 19 164 liées à des factures commençant par C (Annulation / Cancelled)
 - soit environ 84,96 %
 - 3 393 autres mouvements négatifs
 
