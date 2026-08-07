@@ -1,0 +1,15 @@
+# Environnement Python
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Données sources
+data/raw/
+
+# Jupyter
+.ipynb_checkpoints/
