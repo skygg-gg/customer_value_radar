@@ -182,3 +182,27 @@ Ajout de SourcePeriod
 Correction du chevauchement
 Consolidation
 Parquet
+
+## Choix méthodologiques RFM
+
+### Score Frequency
+
+Les scores `Recency` et `Monetary` sont construits à partir de la position des clients dans leur distribution.
+
+Pour `Frequency`, des seuils absolus ont été retenus :
+
+- 1 commande → score 1 ;
+- 2 commandes → score 2 ;
+- 3 à 5 commandes → score 3 ;
+- 6 à 10 commandes → score 4 ;
+- plus de 10 commandes → score 5.
+
+Ce choix permet de conserver des classes faciles à interpréter et évite de séparer artificiellement des clients ayant exactement le même nombre de commandes.
+
+### Clients avec une valeur monétaire négative
+
+20 clients présentent une valeur `Monetary` inférieure ou égale à zéro.
+
+Ils sont conservés dans l'analyse car ils ont réalisé au moins un achat produit, mais la valeur de leurs annulations cumulées compense ou dépasse celle de leurs achats.
+
+Ils reçoivent naturellement un score monétaire faible et ne sont pas supprimés du dataset.
