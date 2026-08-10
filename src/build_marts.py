@@ -358,4 +358,84 @@ print(
     customers_check[4]
 )
 
+# Création de dim_products
+
+connection.execute(
+    """
+    CREATE OR REPLACE TABLE dim_products AS
+
+    SELECT
+        StockCode AS stock_code,
+
+        ARG_MAX(
+            Description,
+            InvoiceDate
+        ) FILTER (
+            WHERE Description IS NOT NULL
+        ) AS product_description,
+
+        MAX(line_category) AS line_category,
+
+        MIN(InvoiceDate) AS first_seen_datetime,
+        MAX(InvoiceDate) AS last_seen_datetime,
+
+        COUNT(DISTINCT Description)
+            AS distinct_descriptions
+
+    FROM fact_order_lines
+
+    GROUP BY StockCode
+    """
+)
+
+# Vérification de dim_products
+
+products_check = connection.execute(
+    """
+    SELECT
+        COUNT(*) AS products,
+        COUNT(DISTINCT stock_code)
+            AS distinct_stock_codes,
+
+        SUM(
+            CASE
+                WHEN product_description IS NULL
+                THEN 1
+                ELSE 0
+            END
+        ) AS missing_descriptions,
+
+        SUM(
+            CASE
+                WHEN distinct_descriptions > 1
+                THEN 1
+                ELSE 0
+            END
+        ) AS multiple_description_codes
+
+    FROM dim_products
+    """
+).fetchone()
+
+
+print()
+print("Table créée : dim_products")
+print("Nombre de StockCode :", products_check[0])
+print(
+    "StockCode distincts :",
+    products_check[1]
+)
+print(
+    "Grain StockCode valide :",
+    products_check[0] == products_check[1]
+)
+print(
+    "Descriptions manquantes :",
+    products_check[2]
+)
+print(
+    "Codes avec plusieurs descriptions :",
+    products_check[3]
+)
+
 connection.close()
