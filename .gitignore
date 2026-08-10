@@ -16,3 +16,6 @@ data/raw/
 
 # Données intermédiaires générées
 data/interim/
+
+# Data warehouse
+data/warehouse/
