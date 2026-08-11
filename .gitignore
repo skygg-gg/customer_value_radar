@@ -19,3 +19,6 @@ data/interim/
 
 # Data warehouse
 data/warehouse/
+
+# Data Tableau
+data/tableau/
