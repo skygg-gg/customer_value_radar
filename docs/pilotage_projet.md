@@ -9,30 +9,25 @@
  Analyse métier / EDA : Terminé 
  Segmentation RFM : Terminé 
  Documentation : En cours 
- Dashboard Tableau : À faire 
- Application Streamlit : À faire 
+ Dashboard Tableau : Terminé
+ Application Streamlit : Terminé
  README et architecture finale : À faire 
  Présentation et préparation de l'oral : À faire 
-
-La soutenance est prévue le 25 août 2026
 
 
 ## 2. Budget
 
-Le projet repose principalement sur des outils gratuits ou disponibles dans le cadre de la formation
 
  Dataset UCI - 0 €
  Python / Pandas / DuckDB - 0 € 
  Git / GitHub - 0 € 
  Streamlit - 0 € 
  Infrastructure cloud - 0 € 
- Tableau - 0 € dans l'environnement utilisé 
+ Tableau - 0 € 
 
 
 
 ## 3. Suivi du projet
-
-Le projet est suivi à partir de plusieurs indicateurs  :
 
 - avancement des livrables 
 - validation des contrôles qualité 
@@ -41,7 +36,7 @@ Le projet est suivi à partir de plusieurs indicateurs  :
 - état d'avancement de Tableau et Streamlit 
 - préparation de la soutenance
 
-Git et GitHub permettent également de suivre les différentes évolutions du projet.
+Git et GitHub 
 
 
 
