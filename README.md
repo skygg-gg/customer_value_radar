@@ -2,11 +2,7 @@
 
 Projet d’analyse de données e-commerce visant à mesurer la performance commerciale, la valeur client, les comportements d’achat et les annulations.
 
-Le projet repose sur une chaîne de traitement reproductible utilisant **Python, SQL, DuckDB, Tableau et Streamlit**.
-
 ## Objectifs
-
-Le projet permet notamment de :
 
 * suivre l’évolution des ventes ;
 * analyser la valeur et la fréquence d’achat des clients ;
@@ -32,21 +28,18 @@ Licence : **CC BY 4.0**
 
 ## Architecture
 
-Le projet suit une architecture analytique simple :
-
-```text
 Fichier Excel
-    ↓
+
 Parquet
-    ↓
+
 Bronze
-    ↓
+
 Silver
-    ↓
+
 Gold
-    ↓
+
 Tableau / Streamlit
-```
+
 
 Les principales tables analytiques sont :
 
@@ -62,9 +55,9 @@ La base analytique est stockée dans **DuckDB**.
 
 L’analyse RFM repose sur :
 
-* **Recency (récence)** : nombre de jours depuis le dernier achat observé ;
-* **Frequency (fréquence)** : nombre de commandes d’achat ;
-* **Monetary (valeur monétaire)** : valeur nette générée par le client.
+* **Recency (récence)** : nombre de jours depuis le dernier achat observé 
+* **Frequency (fréquence)** : nombre de commandes d’achat 
+* **Monetary (valeur monétaire)** : valeur nette générée par le client
 
 Les clients sont répartis en six segments :
 
@@ -143,12 +136,12 @@ python -m streamlit run streamlit_app.py
 
 ## Technologies
 
-**Python · Pandas · SQL · DuckDB · Parquet · Tableau · Streamlit · Git · GitHub**
+**Python  Pandas  SQL  DuckDB  Parquet  Tableau  Streamlit  Git  GitHub**
 
 ## Limites principales
 
-* certaines lignes ne possèdent pas de `Customer ID` et ne peuvent donc pas être utilisées pour l’analyse RFM individuelle ;
-* `Country` représente le pays observé sur la transaction et non nécessairement la résidence permanente du client ;
-* un même `StockCode` peut avoir plusieurs descriptions observées ;
-* les factures commençant par `C` sont considérées comme des annulations selon UCI, sans supposer qu’il s’agit systématiquement de retours physiques ;
+* certaines lignes ne possèdent pas de `Customer ID` et ne peuvent donc pas être utilisées pour l’analyse RFM individuelle 
+* `Country` représente le pays observé sur la transaction et non nécessairement la résidence permanente du client 
+* un même `StockCode` peut avoir plusieurs descriptions observées 
+* les factures commençant par `C` sont considérées comme des annulations selon UCI
 * la période observée est limitée au contenu du jeu de données.
